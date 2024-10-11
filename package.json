@@ -1,0 +1,24 @@
+{
+  "name": "untitled",
+  "version": "1.0.0",
+  "description": "- https://myaccount.google.com/apppasswords",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.15"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catolicasc/REDES.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catolicasc/REDES/issues"
+  },
+  "homepage": "https://github.com/catolicasc/REDES#readme"
+}
