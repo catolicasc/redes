@@ -1,36 +1,43 @@
 require('dotenv').config();
+const express = require("express")
+const app = express()
+app.use(express.json())
+app.post("/enviar-email",  (req, res) => {    
+    const { from, to, subject, text, html } = req.body
+    sendEmail({ to, from, subject, text, html })
+    res.json({message: { from, to, subject, text, html }})
+})
+
+app.listen("3000", function () {
+    console.log("SUBIU, GLORIAS!!")
+})
+
+
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
     secure: false,
-    //debug: true,
-    //logger: true,
+    debug: true,
+    logger: true,
     auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
     },
 });
 
-async function sendEmail() {
+async function sendEmail({ from, to, subject, text, html }) {
     try {
         const info = await transporter.sendMail({
-            from: 'teste@gmail.com',
-            to: 'alASDADQWDQDQD1231321AWE123123145EQW11D65QW16E5Q1W56EWQlmeidajr@JORNADATECNOLOGIA.com',
-            subject: 'Testando envio de e-mail com Node.js e SMTP',
-            text: 'tereOlá! Este é um e-mail de teste enviado pelo Nodemailer com SMTP.',
-            html: `
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <img src="https://media1.tenor.com/m/WGfLSON0pKgAAAAd/gato-apaixonado.gif" alt="Jornadinha Linda" />
-                </div>
-                <p>Este é um e-mail de teste enviado pelo Nodemailer com SMTP.</p>
-            `
+            from,
+            to,
+            subject,
+            text,
+            html
         });
-
         console.log('E-mail enviado com sucesso:', info.messageId);
     } catch (error) {
         console.error('Erro ao enviar e-mail:', error);
     }
 }
-sendEmail();
