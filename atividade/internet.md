@@ -1,5 +1,7 @@
 # Atividade de Pesquisa: Camada de Internet (Modelo TCP/IP)
-### Entrega dia 18/11/2024
+### Entrega dia 25/11/2024 para turma A
+### Entrega dia 29/11/2024 para turma B
+
 
 ## Objetivo
 Compreender o funcionamento da camada de Internet no modelo TCP/IP, incluindo seus protocolos, funcionalidades e papel na comunicação em redes.
